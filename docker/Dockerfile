@@ -1,7 +1,14 @@
 FROM python:3.10-slim-bullseye as builder
 
 RUN apt-get update \
-    && apt-get install -y wget ca-certificates git gosu \
+    && apt-get install -y -q \
+        bash \
+        wget \
+        binutils \
+        upx \
+        ca-certificates \
+        git \
+        gosu \
     && git clone https://github.com/jiangbaoming/Movie_Data_Capture.git \
     && mv Movie_Data_Capture /mdc \
     && cd /mdc \
