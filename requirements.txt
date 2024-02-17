@@ -1,5 +1,5 @@
 requests
-dlib-bin=19.24.2
+dlib-bin==19.24.2
 Click
 numpy
 face-recognition-models
