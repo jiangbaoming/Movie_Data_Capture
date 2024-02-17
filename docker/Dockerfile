@@ -12,8 +12,6 @@ RUN apt-get update \
     && git clone https://github.com/jiangbaoming/Movie_Data_Capture.git \
     && mv Movie_Data_Capture /mdc \
     && cd /mdc \
-    && pip install --upgrade \
-        pip \
     && pip install  -r requirements.txt  
 
 ENV TZ="Asia/Shanghai"
