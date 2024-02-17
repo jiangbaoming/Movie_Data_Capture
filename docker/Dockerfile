@@ -14,9 +14,7 @@ RUN apt-get update \
     && cd /mdc \
     && pip install --upgrade \
         pip \
-        pyinstaller \
-    && ( pip install --no-cache-dir -r requirements.txt || true ) \
-    && pip install --no-cache-dir requests lxml Beautifulsoup4 pillow 
+    && pip install  -r requirements.txt  
 
 ENV TZ="Asia/Shanghai"
 ENV UID=1026
