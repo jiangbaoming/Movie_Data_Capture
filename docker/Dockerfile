@@ -1,8 +1,4 @@
-FROM python:slim as builder
-# RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list \
-    # && sed -i 's/security.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
-# RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U \
-    # && pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+FROM python:3.10-slim-bullseye as builder
 
 RUN apt-get update \
     && apt-get install -y wget ca-certificates git gosu \
@@ -15,7 +11,7 @@ RUN apt-get update \
     && ( pip install --no-cache-dir -r requirements.txt || true ) \
     && pip install --no-cache-dir requests lxml Beautifulsoup4 pillow \
     && pyinstaller \
-        -D Movie_Data_Capture.py \
+        -D -n Movie_Data_Capture Movie_Data_Capture.py \
     && cp /mdc/config.ini /mdc/dist/Movie_Data_Capture/config.template
 
 FROM debian:11-slim
