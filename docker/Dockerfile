@@ -3,7 +3,7 @@ FROM python:3.10 as builder
 RUN apt-get update \
     && apt-get install -y wget ca-certificates git gosu \
     && git clone https://github.com/jiangbaoming/Movie_Data_Capture.git \
-    && mv Movie_Data_Capture-master /mdc \
+    && mv Movie_Data_Capture /mdc \
     && cd /mdc \
     && pip install --upgrade \
         pip \
