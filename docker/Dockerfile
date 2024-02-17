@@ -34,4 +34,4 @@ RUN chmod +x docker-entrypoint.sh \
 
 VOLUME [ "/data", "/config" ]
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/mdc/docker-entrypoint.sh"]
