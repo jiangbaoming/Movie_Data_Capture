@@ -24,7 +24,7 @@ jobs:
         name: Release version
         id: release_version
         run: |
-          app_version=$(cat version.py |sed -ne "s/APP_VERSION\s=\s'v\(.*\)'/\1/gp")
+          app_version=$(cat data.json | sed -ne 's/.*"version": "\(.*\)".*/\1/p')
           echo "app_version=${app_version}" >> $GITHUB_ENV
 
       - name: Docker metadata
