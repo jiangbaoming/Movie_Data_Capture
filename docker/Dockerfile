@@ -12,8 +12,11 @@ RUN apt-get update \
     && git clone https://github.com/jiangbaoming/Movie_Data_Capture.git \
     && mv Movie_Data_Capture /mdc \
     && cd /mdc \
+    && pip install --upgrade \
+        pip \
+        pyinstaller \
     && ( pip install --no-cache-dir -r requirements.txt || true ) \
-    && pip install --no-cache-dir requests lxml Beautifulsoup4 pillow dlib-bin \
+    && pip install --no-cache-dir requests lxml Beautifulsoup4 pillow \
     && apt-get purge -y wget
 
 ENV TZ="Asia/Shanghai"
