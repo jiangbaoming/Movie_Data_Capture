@@ -12,7 +12,9 @@ RUN apt-get update \
     && git clone https://github.com/jiangbaoming/Movie_Data_Capture.git \
     && mv Movie_Data_Capture /mdc \
     && cd /mdc \
-    && pip install  -r requirements.txt  
+    && ( pip install --no-cache-dir -r requirements.txt || true ) \
+    && pip install --no-cache-dir requests lxml Beautifulsoup4 pillow dlib-bin \
+    && apt-get purge -y wget
 
 ENV TZ="Asia/Shanghai"
 ENV UID=1026
