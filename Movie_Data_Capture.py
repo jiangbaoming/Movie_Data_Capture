@@ -651,7 +651,7 @@ def main(args: tuple) -> Path:
                     time.sleep(sleep_seconds)
                 
                 t = threading.Thread(target=create_data_and_move, args=(movie_path, zero_op, no_net_op, oCC, thread_list))
-                thread_list.append(t.getName())
+                thread_list.append(t.name)
                 t.start()
             else :
                 thread_list.append(threading.current_thread().name)
@@ -704,7 +704,7 @@ def period(delta, pattern):
 
 
 if __name__ == '__main__':
-    version = '6.6.10'
+    version = '6.6.11'
     urllib3.disable_warnings()  # Ignore http proxy warning
     app_start = time.time()
 
